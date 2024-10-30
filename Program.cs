@@ -16,7 +16,7 @@ class Hangman
         {
             Console.WriteLine(GetHangmanState(attemptsLeft));
 
-            DisplayWord(selectedWord, guessedLetters);
+            DisplayWord(selectedWord, guess);
             Console.WriteLine($"Lives: {lives}");
             Console.WriteLine("Guessed letters: " + string.Join(", ", guessedLetters));
             Console.Write("Enter a letter: ");
@@ -38,9 +38,9 @@ class Hangman
 
                 }
 
-                if (IsWordGuessed(selectedWord, guessedLetters))
+                if (IsWordGuessed(selectedWord, guess))
                 {
-                    DisplayWord(selectedWord, guessedLetters);
+                    DisplayWord(selectedWord, guess);
                     isWin = true;
                     PrintEndScreen(isWin);
                     break;
@@ -55,11 +55,11 @@ class Hangman
         }
     }
 
-    public static void DisplayWord(string word, HashSet<char> guessedLetters)
+    public static void DisplayWord(string word, char guess)
     {
         foreach (char letter in word)
         {
-            if (guessedLetters.Contains(letter))
+            if (guess == letter)
             {
                 Console.Write(letter + " ");
             }
@@ -71,11 +71,11 @@ class Hangman
         Console.WriteLine();
     }
 
-    public static bool IsWordGuessed(string word, HashSet<char> guessedLetters)
+    public static bool IsWordGuessed(string word, char guess)
     {
         foreach (char letter in word)
         {
-            if (!guessedLetters.Contains(letter))
+            if (guess != letter)
             {
                 return false;
             }
