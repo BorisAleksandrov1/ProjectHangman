@@ -4,7 +4,8 @@ using System.Collections.Generic;
 class Hangman
 {
     static void Main()
-    {
+    { 
+        char guess = '\0';
         string selectedWord = GenerateRandomWord();
         HashSet<char> guessedLetters = new HashSet<char>();
         //making a list for non repeatable 
@@ -20,7 +21,7 @@ class Hangman
             Console.WriteLine($"Lives: {lives}");
             Console.WriteLine("Guessed letters: " + string.Join(", ", guessedLetters));
             Console.Write("Enter a letter: ");
-            char guess = char.Parse(Console.ReadLine());
+            guess = char.Parse(Console.ReadLine());
             Console.WriteLine();
 
             if (guessedLetters.Contains(guess))
