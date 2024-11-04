@@ -15,13 +15,14 @@ class Hangman
             System.Console.WriteLine("1. Play");
             System.Console.WriteLine("2. How to Play");
             System.Console.WriteLine("3. Difficulty");
-            System.Console.WriteLine("4. Character Color");
+            System.Console.WriteLine("4. Text Color");
             System.Console.WriteLine("5. Background Color");
             System.Console.WriteLine("6. Exit");
             cmd = Console.ReadLine();
             switch (cmd)
             {
                 case "1":
+                    Console.Clear();
                     break;
                 case "2":
                     Console.Clear();
@@ -34,10 +35,14 @@ class Hangman
                     Console.Clear();
                     break;
                 case "4":
-                    //char color
+                    Console.Clear();
+                    ChangeTextColor();
+                    Console.Clear();
                     break;
                 case "5":
-                    //background color
+                    Console.Clear();
+                    ChangeBackground();
+                    Console.Clear();
                     break;
                 case "6":
                     return;
@@ -96,6 +101,81 @@ class Hangman
                     PrintEndScreen(isWin);
                 }
             }
+        }
+    }
+    public static void ChangeTextColor()
+    {
+        int cmd = 0;
+        while (cmd != 6)
+        {
+            Console.WriteLine("1.Change text color to Blue");
+            Console.WriteLine("2.Change text color to Green");
+            Console.WriteLine("3.Change text color to Red");
+            Console.WriteLine("4.Change text color to White");
+            Console.WriteLine("5.Change text color to Black");
+            Console.WriteLine("6.Exit");
+
+            cmd = int.Parse(Console.ReadLine());
+            switch (cmd)
+            {
+                case 1:
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                case 2:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                case 3:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case 4:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+                case 5:
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    break;
+                case 6:
+                    break;
+            }
+        }
+    }
+    public static void ChangeBackground()
+    {
+        int cmd = 0;
+        while(cmd != 6)
+        {
+            Console.WriteLine("1.Change background color to Blue");
+            Console.WriteLine("2.Change background color to Green");
+            Console.WriteLine("3.Change background color to Red");
+            Console.WriteLine("4.Change background color to White");
+            Console.WriteLine("5.Change background color to Black");
+            Console.WriteLine("6.Exit");
+
+            cmd = int.Parse(Console.ReadLine());
+            switch(cmd)
+            {
+                case 1:
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.Clear();
+                    break;
+                case 2:
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.Clear();
+                    break;
+                case 3:
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.Clear();
+                    break;
+                case 4:
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.Clear();
+                    break;
+                case 5:
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.Clear();
+                    break;
+                case 6:
+                    break;
+            } 
         }
     }
     public static void HowToPlay()

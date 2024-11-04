@@ -1,0 +1,15 @@
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\bin\Debug\net8.0\ProjectHangman.exe
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\bin\Debug\net8.0\ProjectHangman.deps.json
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\bin\Debug\net8.0\ProjectHangman.runtimeconfig.json
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\bin\Debug\net8.0\ProjectHangman.dll
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\bin\Debug\net8.0\ProjectHangman.pdb
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\ProjectHangman.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\ProjectHangman.AssemblyInfoInputs.cache
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\ProjectHangman.AssemblyInfo.cs
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\ProjectHangman.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\ProjectHangman.sourcelink.json
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\ProjectHangman.dll
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\refint\ProjectHangman.dll
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\ProjectHangman.pdb
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\ProjectHangman.genruntimeconfig.cache
+C:\Users\Admin\Projects\Hangman3\ProjectHangman\obj\Debug\net8.0\ref\ProjectHangman.dll
