@@ -1,12 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 
 class Hangman
 {
     static void Main()
-    { 
+    {
+        int difficulty = 1;
+        string cmd = string.Empty;
+        //menu
+        while (cmd != "1")
+        {
+            System.Console.WriteLine("Menu");
+            System.Console.WriteLine("1. Play");
+            System.Console.WriteLine("2. How to Play");
+            System.Console.WriteLine("3. Difficulty");
+            System.Console.WriteLine("4. Character Color");
+            System.Console.WriteLine("5. Background Color");
+            System.Console.WriteLine("6. Exit");
+            cmd = Console.ReadLine();
+            switch (cmd)
+            {
+                case "1":
+                    break;
+                case "2":
+                    Console.Clear();
+                    HowToPlay();
+                    Console.Clear();
+                    break;
+                case "3":
+                    Console.Clear();
+                    difficulty = GetDifficulty(difficulty);
+                    Console.Clear();
+                    break;
+                case "4":
+                    //char color
+                    break;
+                case "5":
+                    //background color
+                    break;
+                case "6":
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+        }
+
+   
         char guess = '\0';
-        string selectedWord = GenerateRandomWord();
+        string selectedWord = GenerateRandomWord(difficulty);
         HashSet<char> guessedLetters = new HashSet<char>();
         //making a list for non repeatable 
         int attemptsLeft = 0;
@@ -17,7 +60,7 @@ class Hangman
         {
             Console.WriteLine(GetHangmanState(attemptsLeft));
 
-            DisplayWord(selectedWord, guess);
+            DisplayWord(selectedWord, guessedLetters);
             Console.WriteLine($"Lives: {lives}");
             Console.WriteLine("Guessed letters: " + string.Join(", ", guessedLetters));
             Console.Write("Enter a letter: ");
@@ -39,14 +82,14 @@ class Hangman
 
                 }
 
-                if (IsWordGuessed(selectedWord, guess))
+                if (IsWordGuessed(selectedWord, guessedLetters))
                 {
-                    DisplayWord(selectedWord, guess);
+                    DisplayWord(selectedWord, guessedLetters);
                     isWin = true;
                     PrintEndScreen(isWin);
                     break;
                 }
-                else if(attemptsLeft == 6)
+                else if (attemptsLeft == 6)
                 {
                     RenderDeathAnimation().Wait();
                     Console.Clear();
@@ -55,12 +98,21 @@ class Hangman
             }
         }
     }
+    public static void HowToPlay()
+    {
+        Console.WriteLine("There is a word that you have to guess");
+        Console.WriteLine("Every char in the word is marked by a - ");
+        Console.WriteLine("To win you have to guess the word letter by letter");
+        Console.WriteLine("You have to do it in a few tries either you will become the hangman");
+        Console.WriteLine("Press Any Key to go back");
+        Console.ReadKey();
+    }
 
-    public static void DisplayWord(string word, char guess)
+    static void DisplayWord(string word, HashSet<char> guessedLetters)
     {
         foreach (char letter in word)
         {
-            if (guess == letter)
+            if (guessedLetters.Contains(letter))
             {
                 Console.Write(letter + " ");
             }
@@ -72,40 +124,54 @@ class Hangman
         Console.WriteLine();
     }
 
-    public static bool IsWordGuessed(string word, char guess)
+
+    static bool IsWordGuessed(string word, HashSet<char> guessedLetters)
     {
         foreach (char letter in word)
         {
-            if (guess != letter)
+            if (!guessedLetters.Contains(letter))
             {
                 return false;
             }
         }
         return true;
     }
-    public static string GenerateRandomWord()
+
+
+    public static int GetDifficulty(int difficulty)
+    {
+        Console.WriteLine("Choose a difficulty level:");
+        Console.WriteLine("1. Easy");
+        Console.WriteLine("2. Medium");
+        Console.WriteLine("3. Hard");
+        Console.WriteLine($"Current level: {difficulty}");
+        int cmd = int.Parse(Console.ReadLine());
+        return cmd;
+    }
+
+    public static string GenerateRandomWord(int difficulty)
     {
         string result = string.Empty;
-
-        string[] words =
+        string words = string.Empty;
+        if (difficulty == 1)
         {
-          "apple", "baby", "ball", "beach", "bear", "bed", "bike", "bird", "book", "box",
-          "boy", "bread", "cake", "car", "cat", "chair", "city", "cloud", "cold", "cow",
-          "cup", "day", "dog", "door", "duck", "ear", "earth", "egg", "eye", "farm",
-          "fish", "flag", "flower", "food", "foot", "fork", "frog", "game", "girl", "glass",
-          "goat", "good", "grass", "green", "hat", "heart", "hill", "home", "horse", "hot",
-          "house", "ice", "jar", "key", "kite", "lake", "leaf", "leg", "light", "lion",
-          "man", "milk", "moon", "mouse", "night", "nose", "nut", "park", "pen", "pig",
-          "plant", "rain", "red", "ring", "rock", "roof", "room", "rose", "sea", "ship",
-          "shoe", "sky", "snow", "soap", "star", "stone", "sun", "table", "tree", "truck",
-          "wall", "water", "wind", "window", "wolf", "wood", "work", "year", "yellow", "zoo"
-        };
+            words = "apple banana chair table happy smile water pizza phone house dog cat tree milk school music book light bird green blue red sun rain king queen river flower star fish moon cake dress grass bread cheese";
+        }
+        else if (difficulty == 2)
+        {
+            words = "garden window planet guitar orange camera rabbit forest bridge desert artist thunder purple market jungle island castle candle dinner mirror kitten soccer button family winter circus engine puzzle roller silver candle yellow dollar wizard bamboo honeycomb pillow feather helmet castle orbit basket valley cactus meadow fountain shiver pocket rocket gather velvet tower puppet jungle author circus";
+        }
+        else if (difficulty == 3)
+        {
+            words = "awkward mystify iceberg zephyr oxygen rhythm buffalo jockey knapsack sphinx banjo cobweb blizzard luxury cryptic duplex lengths vortex zigzag oxidize knoll glyph whiz waltz fjord chintz abscond spindle drizzle quartz jockey phoenix boggle gizmos xylophone ivory squawk bison flaxen mulberry ghostly abscess frenzy gadget husband jigsaw laptop nucleus sparkle unique widget";
+        }
 
+        string[] wordsArr = words.Split(" ").ToArray();
 
         Random random = new Random();
-        int index = random.Next(0, words.Length);
+        int index = random.Next(0, wordsArr.Length);
 
-        result = words[index];
+        result = wordsArr[index];
 
         return result;
     }
@@ -507,5 +573,6 @@ class Hangman
             await Task.Delay(300);
         }
     }
+
 
 }

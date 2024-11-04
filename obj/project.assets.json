@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Codes\\ProjectHangman\\ProjectHangman.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Projects\\Hangman3\\ProjectHangman\\ProjectHangman.csproj",
       "projectName": "ProjectHangman",
-      "projectPath": "C:\\Users\\Admin\\Codes\\ProjectHangman\\ProjectHangman.csproj",
+      "projectPath": "C:\\Users\\Admin\\Projects\\Hangman3\\ProjectHangman\\ProjectHangman.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Codes\\ProjectHangman\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Projects\\Hangman3\\ProjectHangman\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
